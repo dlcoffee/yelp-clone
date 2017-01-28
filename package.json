@@ -4,6 +4,7 @@
   "description": "yelp clone",
   "main": "webkacp.config.js",
   "scripts": {
+    "start": " NODE_ENV=development ./node_modules/.bin/hjs-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "daniel tea",
@@ -13,6 +14,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.7.0",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
@@ -20,9 +22,12 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.26.1",
+    "cssnano": "^3.10.0",
+    "dotenv": "^4.0.0",
     "file-loader": "^0.9.0",
     "hjs-webpack": "^8.4.3",
     "postcss-loader": "^1.2.2",
+    "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0"

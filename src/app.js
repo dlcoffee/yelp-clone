@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './app.css';
+import styles from './styles.module.css';
+
 // const App = React.createClass()
 // class App extends React.Component
 
 const App = React.createClass(
   {
     render: function() {
-      return (<div>Text text text</div>);
+      return (
+        <div className={styles.wrapper}>
+          Text text text
+        </div>
+      );
     }
   }
 );

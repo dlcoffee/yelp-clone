@@ -21,11 +21,21 @@ const dest    = join(root, 'dist');
 const isDev    = NODE_ENV === 'development';
 const isTest   = NODE_ENV === 'test';
 
-const dotEnvVars     = dotenv.config();
+var config = getConfig({
+  isDev: isDev,
+  in: join(src, 'app.js'),
+  out: dest,
+  clearBeforeBuild: true,
+  devServer: {
+    port: 3001,
+  },
+});
+
+const dotEnvVars     = dotenv.config().parsed;
 const environmentEnv = dotenv.config({
   path: join(root, 'config', `${NODE_ENV}.config.js`),
   silent: true,
-});
+}).parsed;
 
 const envVariables = Object.assign({}, dotEnvVars, environmentEnv);
 
@@ -39,15 +49,9 @@ const defines =
     __NODE_ENV__: JSON.stringify(NODE_ENV)
   });
 
-var config = getConfig({
-  isDev: isDev,
-  in: join(src, 'app.js'),
-  out: dest,
-  clearBeforeBuild: true,
-  devServer: {
-    port: 3001,
-  },
-});
+config.plugins = [
+  new webpack.DefinePlugin(defines)
+].concat(config.plugins);
 
 
 config.resolve.root = [src, modules];
@@ -57,10 +61,6 @@ config.resolve.alias = {
   'components': join(src, 'components'),
   'utils': join(src, 'utils'),
 };
-
-config.plugins = [
-  new webpack.DefinePlugin(defines)
-].concat(config.plugins);
 
 config.postcss = [].concat([
   require('precss')({}),
@@ -118,7 +118,5 @@ if (isTest) {
     return idx < 0;
   })
 }
-
-
 
 module.exports = config;

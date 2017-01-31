@@ -31,11 +31,11 @@ var config = getConfig({
   },
 });
 
-const dotEnvVars     = dotenv.config().parsed;
+const dotEnvVars     = dotenv.config();
 const environmentEnv = dotenv.config({
   path: join(root, 'config', `${NODE_ENV}.config.js`),
   silent: true,
-}).parsed;
+});
 
 const envVariables = Object.assign({}, dotEnvVars, environmentEnv);
 

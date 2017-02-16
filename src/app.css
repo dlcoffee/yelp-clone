@@ -1,3 +1,20 @@
+*,
+*:after,
+*:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+
+  box-sizing: border-box;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  border: 1px solid red;
+  color: #333333;
+  font-smoothing: antialiased;
+  font-weight: lighter;
+  font: 400 15px/22px 'Open Sans', 'Helvetica Neue', Sans-serif;
+  margin: 0;
+  padding: 0;
 }

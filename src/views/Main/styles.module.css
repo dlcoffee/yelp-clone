@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  margin: 0;
+  overflow-y: scroll;
+  padding: 15px;
+
+  height: 100vh;
+  -webkit-box-orient: horizontal;
+  -o-box-orient: horizontal;
+}
+
+.content {
+  flex: 2;
+  position: relative;
+  top: 80px;
+}

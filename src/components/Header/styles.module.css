@@ -1,0 +1,31 @@
+@import url("../../styles/base.css");
+
+.topbar {
+  background: #48b5e9;
+  color: #fff;
+  height: var(--topbar-height);
+  left: 0;
+  line-height: var(--topbar-height);
+  padding: 0 25px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  a {
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 40px;
+
+    h1 {
+      font-size: 28px;
+    }
+  }
+
+  section {
+    position: absolute;
+    right: 25px;
+    top: 0px;
+  }
+}

@@ -4,6 +4,8 @@ import {searchNearby} from 'utils/googleApiHelpers';
 
 import Header from 'components/Header/Header';
 
+import styles from './styles.module.css'
+
 export class Container extends React.Component {
   constructor(props) {
     super(props);
@@ -39,10 +41,10 @@ export class Container extends React.Component {
   render() {
     return(
       <div>
-        Hello from the container
         <Map
           google={this.props.google}
           onReady={this.onReady.bind(this)}
+          className={styles.content}
           visible={false}>
 
           <Header />

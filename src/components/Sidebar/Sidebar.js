@@ -1,4 +1,6 @@
 import React, { PropTypes as T } from 'react'
+
+import Listing from 'components/Listing/Listing'
 import styles from './styles.module.css'
 
 export class Sidebar extends React.Component {
@@ -8,6 +10,7 @@ export class Sidebar extends React.Component {
         <div className={styles.heading}>
           <h1>{this.props.title}</h1>
         </div>
+        <Listing places={this.props.places} />
       </div>
     );
   }

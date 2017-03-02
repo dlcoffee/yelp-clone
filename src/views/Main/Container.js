@@ -40,6 +40,13 @@ export class Container extends React.Component {
   }
 
 
+  onMarkerClick(item) {
+    const {place} = item;
+    const {push} = this.context.router;
+    push(`/map/detail/${place.place_id}`);
+  }
+
+
   render() {
     let children = null;
     if (this.props.children) {
@@ -49,6 +56,7 @@ export class Container extends React.Component {
           google: this.props.google,
           places: this.state.places,
           loaded: this.props.loaded,
+          onMarkerClick: this.onMarkerClick.bind(this),
         }
       );
     }
@@ -71,6 +79,10 @@ export class Container extends React.Component {
     );
   };
 };
+
+Container.contextTypes = {
+  router: React.PropTypes.object,
+}
 
 export default GoogleApiWrapper({
   apiKey: __GAPI_KEY__,

@@ -33,13 +33,26 @@ export class Container extends React.Component {
           places: results,
           pagination,
         });
-      }).catch((status, result) => {
+      })
+      .catch((status, result) => {
         // there was an error
       });
   }
 
 
   render() {
+    let children = null;
+    if (this.props.children) {
+      children = React.cloneElement(
+        this.props.children,
+        {
+          google: this.props.google,
+          places: this.state.places,
+          loaded: this.props.loaded,
+        }
+      );
+    }
+
     return(
       <Map
         google={this.props.google}
@@ -50,6 +63,10 @@ export class Container extends React.Component {
         <Header />
 
         <Sidebar title={'Restaurants'} places={this.state.places}/>
+
+        <div className={styles.content}>
+          {children}
+        </div>
       </Map>
     );
   };

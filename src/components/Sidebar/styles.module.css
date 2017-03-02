@@ -6,8 +6,10 @@
   left: 0;
   overflow: hidden;
 
-  position: relative;
+  flex-direction: column;
   flex: 1;
+  order :2;
+  position: relative;
   z-index: 0;
 
   .heading {

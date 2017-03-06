@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 
 export class Detail extends React.Component {
   constructor(props, context) {
+    console.log(props);
     super(props, context);
 
     this.state = {
@@ -20,9 +21,9 @@ export class Detail extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.map &&
-         (prevProps.map !== this.props.map ||
-           prevProps.params.placeId !== this.props.params.placeId)) {
+    if (this.props.map &&  // make sure we have a map
+      (prevProps.map !== this.props.map ||
+        prevProps.params.placeId !== this.props.params.placeId)) {
       this.getDetails(this.props.map);
     }
   }
@@ -56,8 +57,8 @@ export class Detail extends React.Component {
 
     const {place} = this.state;
     return(
-      <div className={styles.details}>
-        <h2>{place.name}</h2>
+      <div className={styles.wrapper}>
+        <h2 className={styles.header}>{place.name}</h2>
       </div>
     );
   }

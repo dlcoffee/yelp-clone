@@ -65,7 +65,7 @@ export class Container extends React.Component {
       <Map
         google={this.props.google}
         onReady={this.onReady.bind(this)}
-        className={styles.content}
+        className={styles.wrapper}
         visible={false}>
 
         <Header />
